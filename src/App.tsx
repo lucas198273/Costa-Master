@@ -10,16 +10,14 @@ import ProductInfoSection from './components/BurgerShopInfoSection/BurgerShopInf
 import Footer from './components/Footer/Footer';
 import ScrollTop from './components/ScrollTop/ScrollTop';
 import ScrollToTopOnRouteChange from './components/ScrollToTopOnRouteChange/ScrollToTopOnRouteChange';
-import Cart from './components/Cart/Cart';
 import PoliticaEPrivacidade from './pages/PoliticasEPrivacidade';
 import MenuPage from './components/MenuSection/Menupage.tsx';
-import HorioAlert from './components/HorarioAlert/HorarioAlert.tsx';
 import AboutUs from './pages/AboutUs.tsx';
 import OrdersPanel from './pages/OrdersPanel.tsx';
 import Aos from 'aos';
 
 export default function AppContent() {
-  const { items, total, isCartOpen, openCart, closeCart } = useCart();
+  const { } = useCart();
 
   useEffect(() => {
     Aos.init({ duration: 1000, once: true });
@@ -38,7 +36,7 @@ export default function AppContent() {
 
   return (
     <div className="min-h-screen flex flex-col bg-gray-100 text-gray-800 max-w-7xl mx-auto w-full">
-      <Header onCartClick={openCart} cartItemCount={items.length} />
+      <Header  />
       <ScrollToTopOnRouteChange />
       <ScrollTop />
 
@@ -54,7 +52,6 @@ export default function AppContent() {
                 url="https://www.thebrothersburgersbetim.com"
               />
               <main className="pt-20 flex flex-col w-full">
-                <HorioAlert />
                 <Hero />
                 <MenuPage />
                 <ProductInfoSection />
@@ -69,11 +66,7 @@ export default function AppContent() {
 
       <Footer />
 
-      <Cart
-        isOpen={isCartOpen}
-        onClose={closeCart}
-        key={`${items.length}-${total.toFixed(2)}`}
-      />
+    
     </div>
   );
 }

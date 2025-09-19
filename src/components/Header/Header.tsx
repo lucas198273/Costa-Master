@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import {  useRef } from "react";
 import { Link as RouterLink } from "react-router-dom";
 import {
   Box,
@@ -6,7 +6,6 @@ import {
   IconButton,
   HStack,
   Link,
-  Badge,
   Drawer,
   DrawerOverlay,
   DrawerContent,
@@ -19,27 +18,24 @@ import {
 } from "@chakra-ui/react";
 import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
 
-interface Props {
-  onCartClick: () => void;
-  cartItemCount: number;
-}
-
-export default function DeliveryHeader({ onCartClick, cartItemCount }: Props) {
+export default function Header() {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const [isScrolled, setIsScrolled] = useState(false);
   const btnRef = useRef<HTMLButtonElement>(null);
-
-  useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 10);
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   const navLinks = [
     { to: "/", label: "Início" },
-    { to: "/politicas", label: "Políticas" },
     { to: "/about", label: "Sobre" },
+    { to: "/products", label: "Tatuagens" },
+    { to: "/afiliados", label: "Afiliados" },
+    { to: "/politicas", label: "Políticas" },
+    { to: "/galeria", label: "Galeria" },
   ];
+
+  const colors = {
+    amarelo: "#FFD700", // fundo
+    azul: "#043741",    // hover/destaque
+    branco: "#FFFFFF",   // texto
+  };
 
   return (
     <Box
@@ -49,10 +45,10 @@ export default function DeliveryHeader({ onCartClick, cartItemCount }: Props) {
       right="0"
       w="full"
       zIndex="50"
-      bg={isScrolled ? "whiteAlpha.900" : "white"}
-      borderBottom="2px solid"
-      borderColor="red.500"
-      boxShadow={isScrolled ? "sm" : "none"}
+      bg={colors.azul}
+      borderBottom="4px solid"
+      borderColor={colors.azul}
+      boxShadow="md"
       transition="all 0.3s ease"
     >
       <Flex
@@ -71,91 +67,72 @@ export default function DeliveryHeader({ onCartClick, cartItemCount }: Props) {
           display={{ base: "block", md: "none" }}
           onClick={isOpen ? onClose : onOpen}
           variant="ghost"
-          color="red.500"
+          color={colors.amarelo}
           mr={2}
+          ref={btnRef}
         />
 
-        {/* Desktop Nav Links */}
-        <HStack as="nav" spacing={4} display={{ base: "none", md: "flex" }}>
-          {navLinks.map((link) => (
+        {/* Desktop Nav Links esquerda */}
+        <HStack as="nav" spacing={6} display={{ base: "none", md: "flex" }}>
+          {navLinks.slice(0, 3).map((link) => (
             <Link
               key={link.to}
               as={RouterLink}
               to={link.to}
               fontWeight="bold"
-              color="red.500"
-              _hover={{ color: "red.600" }}
+              color={colors.branco}
+              _hover={{ color: colors.azul, textDecoration: "underline" }}
             >
               {link.label}
             </Link>
           ))}
         </HStack>
 
-        {/* Logo Central */}
+        {/* Logo central */}
         <Box
           position="absolute"
           left="50%"
           transform="translateX(-50%)"
-          bg="black"
-          borderRadius="full"
-          p="1"
-          boxShadow="lg"
           flexShrink={0}
+          boxShadow="lg"
+          borderRadius="full"
+          transition="transform 0.3s"
+          _hover={{ transform: "scale(1.05)" }}
         >
           <Link as={RouterLink} to="/">
             <Image
               src="/himgs/logo.webp"
-              alt="The Brothers Hamburgueria"
-              h="14"
-              className="rounded-full transition-transform duration-300 hover:scale-105"
+              alt="Logo Studio"
+              h="16"
               objectFit="contain"
+              borderRadius="full"
             />
           </Link>
         </Box>
 
-        {/* Cart */}
-        <Box position="relative">
-          <IconButton
-            ref={btnRef}
-            aria-label={`Ver carrinho com ${cartItemCount} itens`}
-            icon={
-              <Box as="svg" w={6} h={6} fill="currentColor">
-                <path d="M4 6h16l-2 10H6L4 6zm4 12h8v2H8v-2zm-4-2h16v2H4v-2zm0-8v2h16V8H4z" />
-              </Box>
-            }
-            variant="ghost"
-            color="red.500"
-            onClick={onCartClick}
-          />
-          {cartItemCount > 0 && (
-            <Badge
-              position="absolute"
-              top="0"
-              right="0"
-              bg="red.500"
-              color="white"
-              borderRadius="full"
-              fontSize="xs"
-              px="2"
-              transform="translate(50%, -50%)"
+        {/* Desktop Nav Links direita */}
+        <HStack as="nav" spacing={6} display={{ base: "none", md: "flex" }}>
+          {navLinks.slice(3).map((link) => (
+            <Link
+              key={link.to}
+              as={RouterLink}
+              to={link.to}
+              fontWeight="bold"
+              color={colors.branco}
+              _hover={{ color: colors.azul, textDecoration: "underline" }}
             >
-              {cartItemCount}
-            </Badge>
-          )}
-        </Box>
+              {link.label}
+            </Link>
+          ))}
+        </HStack>
       </Flex>
 
       {/* Mobile Drawer */}
-      <Drawer
-        isOpen={isOpen}
-        onClose={onClose}
-        finalFocusRef={btnRef}
-        placement="left"
-      >
+      <Drawer isOpen={isOpen} onClose={onClose} finalFocusRef={btnRef} placement="left">
         <DrawerOverlay />
-        <DrawerContent>
-          <DrawerCloseButton />
-          <DrawerHeader>Navegação</DrawerHeader>
+        <DrawerContent bg={colors.azul}>
+          <DrawerCloseButton color={colors.azul} />
+          <DrawerHeader color={colors.azul}>Navegação</DrawerHeader>
           <DrawerBody>
             <Stack as="nav" spacing={4}>
               {navLinks.map((link) => (
@@ -164,9 +141,9 @@ export default function DeliveryHeader({ onCartClick, cartItemCount }: Props) {
                   as={RouterLink}
                   to={link.to}
                   fontSize="lg"
-                  color="red.500"
+                  color={colors.branco}
                   onClick={onClose}
-                  _hover={{ color: "red.600" }}
+                  _hover={{ color: colors.branco }}
                 >
                   {link.label}
                 </Link>
