@@ -1,0 +1,24 @@
+/* Importações */
+
+html {
+ /* autoprefixer: ignore next */
+-webkit-text-size-adjust: 100%;
+text-size-adjust: 100%;
+
+}
+
+
+@import "tailwindcss";
+
+/* Camada utilities */
+@tailwind utilities;
+
+
+/* Aplica no topo */
+
+/* Utility personalizada para desabilitar font-boosting no Chrome móvel */
+@layer utilities {
+  .no-font-boost {
+    max-height: 1000000px;
+  }
+}

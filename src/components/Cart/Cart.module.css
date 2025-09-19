@@ -1,0 +1,47 @@
+
+.button {
+  border-width: 2px;
+  transition: color 0.3s, background-color 0.3s, border-color 0.3s;
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  font-weight: 500;
+  border-radius: 0.6rem;
+  cursor: pointer;
+  text-align: center;
+  color: white; /* verde esmeralda escuro */
+  background-color: #065f46;
+
+}
+
+  .limpar {
+    background-color: red;
+    color: white;
+  }
+.buttonActive {
+  background-color: #065f46; /* verde esmeralda escuro */
+  color: #f0fdf4; /* texto claro */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+}
+
+.buttonInactive {
+  color: #065f46; /* verde esmeralda escuro */
+  border-color: #065f46;
+  background-color: #d1fae5; /* verde claro */
+}
+
+
+.buttonHover {
+  background-color: #10b981; /* verde esmeralda vibrante */
+  color: #f0fdf4;
+  border-color: #10b981;
+}
+
+
+.mesaGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+

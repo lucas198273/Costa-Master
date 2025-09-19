@@ -1,0 +1,13 @@
+.sectionBackground {
+  background-image: url('https://tse1.mm.bing.net/th/id/OIP.KT0ld-2fCdVo6segadhCkQHaE7?w=2000&h=1333&rs=1&pid=ImgDetMain&o=7&rm=3'); /* substitua pela sua imagem */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6); /* escurece a imagem */
+}

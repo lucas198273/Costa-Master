@@ -1,0 +1,27 @@
+.card {
+  @apply bg-white rounded-xl shadow-lg p-4 flex flex-col justify-between hover:shadow-2xl transition;
+}
+
+.header {
+  @apply flex justify-between items-center mb-2;
+}
+
+.statusBadge {
+  @apply px-3 py-1 rounded-full text-sm font-semibold;
+}
+
+.itemList {
+  @apply list-disc pl-5 text-gray-600 text-sm;
+}
+
+.button {
+  @apply flex-1 px-3 py-2 rounded text-white font-semibold hover:opacity-90 transition;
+}
+
+.paid {
+  @apply bg-green-500;
+}
+
+.ready {
+  @apply bg-blue-500;
+}

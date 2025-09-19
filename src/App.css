@@ -1,0 +1,40 @@
+/* === Estilos globais === */
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  text-size-adjust: 100%;
+}
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+/* === Animações personalizadas === */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+/* === Estilos base com Tailwind === */
+@layer base {
+  html,
+  :host {
+    text-size-adjust: 100%;
+  }
+}
+@layer utilities {
+  .no-font-boost {
+    max-height: 1000000px;
+  }
+}
+/* Evita que o Chrome Android aplique zoom forçado em fontes pequenas */
+.no-font-boost {
+  max-height: 1000000px;
+  font-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+}

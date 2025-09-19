@@ -1,0 +1,90 @@
+.row {
+  display: grid;
+  grid-template-columns: 1fr auto auto 1fr;
+  align-items: center;
+  gap: 1.5rem; /* mais espaço entre colunas */
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid #065f46; /* verde esmeralda escuro */
+  transition: background-color 0.3s;
+}
+
+.rowHover:hover {
+  background-color: #d1fae5; /* verde claro */
+}
+
+.buttonCombo {
+  padding: 0.5rem 1rem; /* menor altura */
+  border-radius: 0.5rem;
+  background-color: #065f46;
+  color: #f0fdf4;
+  font-weight: 500;
+  font-size: 0.875rem;
+  transition: background-color 0.3s;
+}
+
+.buttonCombo:hover {
+  background-color: #10b981;
+}
+
+.itemName {
+  font-weight: 600;
+  color: #065f46;
+  font-size: 1rem;
+}
+
+.itemPrice {
+  font-weight: 700;
+  color: #064e3b;
+  font-size: 1.125rem;
+}
+
+.quantityControls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem; /* reduz gap entre botões */
+}
+
+.buttonMinus,
+.buttonPlus,
+.buttonRemove {
+  padding: 0.25rem 0.5rem; /* menor tamanho */
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  transition: background-color 0.3s;
+}
+
+.buttonMinus {
+  background-color: #ef4444; 
+  color: white;
+}
+
+.buttonMinus:hover {
+  background-color: #dc2626;
+}
+
+.buttonPlus {
+  background-color: #065f46;
+  color: white;
+}
+
+.buttonPlus:hover {
+  background-color: #10b981;
+}
+
+.buttonRemove {
+  background-color: #fef2f2;
+  color: #b91c1c;
+}
+
+.buttonRemove:hover {
+  background-color: #fee2e2;
+}
+
+.itemImage {
+  width: 80px; /* aumenta um pouco para não ficar apertada */
+  height: 80px;
+  object-fit: cover;
+  border-radius: 0.5rem;
+  margin-right: 0.5rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
