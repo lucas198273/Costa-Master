@@ -1,8 +1,6 @@
 import { useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { useCart } from '../contexts/CartContext';
-import { supabase } from './lib/supabaseClient';
-import { dailyCleanupIfNeeded } from './db/cleanup.ts';
 import SEO from './components/SEO/SEO.tsx';
 import Header from './components/Header/Header';
 import Hero from './components/Hero/Hero';
@@ -12,7 +10,6 @@ import ScrollToTopOnRouteChange from './components/ScrollToTopOnRouteChange/Scro
 import PoliticaEPrivacidade from './pages/PoliticasEPrivacidade';
 import MenuPage from './components/MenuSection/Menupage.tsx';
 import AboutUs from './pages/AboutUs.tsx';
-import OrdersPanel from './pages/OrdersPanel.tsx';
 import PaymentInfo from './components/PaymentInfo/PaymentInfo.tsx';
 import Aos from 'aos';
 
@@ -21,17 +18,8 @@ export default function AppContent() {
 
   useEffect(() => {
     Aos.init({ duration: 1000, once: true });
-    dailyCleanupIfNeeded();
-    async function testConnection() {
-      const { data, error } = await supabase.from('pedidos').select('*').limit(1);
-      if (error) {
-        console.error('Erro ao conectar Supabase ❌:', error.message);
-      } else {
-        console.log('Conexão Supabase OK ✅', data);
-      }
-    }
+ 
 
-    testConnection();
   }, []);
 
   return (
@@ -61,7 +49,6 @@ export default function AppContent() {
         />
         <Route path="/politicas" element={<PoliticaEPrivacidade />} />
         <Route path="/about" element={<AboutUs />} />
-        <Route path="/orders" element={<OrdersPanel />} />
       </Routes>
 
       <Footer />
