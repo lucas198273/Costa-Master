@@ -1,4 +1,4 @@
-import {  useRef } from "react";
+import { useRef, useState } from "react";
 import { Link as RouterLink } from "react-router-dom";
 import {
   Box,
@@ -21,6 +21,12 @@ import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
 export default function Header() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = useRef<HTMLButtonElement>(null);
+  const [logoJump, setLogoJump] = useState(false);
+
+  const handleLogoClick = () => {
+    setLogoJump(true);
+    setTimeout(() => setLogoJump(false), 200); // volta ao normal após 200ms
+  };
 
   const navLinks = [
     { to: "/", label: "Início" },
@@ -29,10 +35,10 @@ export default function Header() {
   ];
 
   const colors = {
-  amarelo: "#FFD700", // fundo
-  azul: "#043741",    // hover/destaque/botão mobile
-  branco: "#FFFFFF",   // não   usado
-  preto: "#000000",   // texto
+    amarelo: "#FFD700",
+    azul: "#043741",
+    branco: "#FFFFFF",
+    preto: "#000000",
   };
 
   return (
@@ -86,18 +92,20 @@ export default function Header() {
           ))}
         </HStack>
 
-        {/* Logo central */}
+        {/* Logo central com efeito de pulo */}
         <Box
           position="absolute"
           left="50%"
-          transform="translateX(-50%)"
+          transform={`translateX(-50%) ${logoJump ? "translateY(-20px)" : ""}`}
           flexShrink={0}
           boxShadow="lg"
           borderColor={colors.preto}
           borderRadius="full"
           borderWidth="2px"
-          transition="transform 0.3s"
-          _hover={{ transform: "scale(1.05)" }}
+          transition="transform 0.2s"
+          onClick={handleLogoClick}
+          cursor="pointer"
+          _hover={{ transform: "translateX(-50%) scale(1.05)" }}
         >
           <Link as={RouterLink} to="/">
             <Image

@@ -42,7 +42,14 @@ export default function Hero() {
               src="/himgs/selo.png"
               alt="Compra 100% segura"
               className="w-32 h-auto object-contain"
-            />
+            />   
+            <img
+              src="/himgs/selo2.png"
+              alt="Compra 100% segura"
+              className="w-32 h-auto object-contain"
+            />    
+         
+            
            
           </div>
 
