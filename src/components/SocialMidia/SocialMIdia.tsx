@@ -2,52 +2,71 @@ import React from "react";
 import { FaInstagram, FaWhatsapp } from "react-icons/fa";
 import { Helmet } from "react-helmet-async";
 
+const colors = {
+  amarelo: "#FFD700", // fundo
+  azul: "#043741",    // destaque/hover
+  preto: "#000000",   // texto
+  branco: "#FFFFFF", // não usado
+};
+
 const SocialMediaSection: React.FC = () => {
   return (
     <>
       <Helmet>
-        {/* Importa fonte de destaque, se necessário */}
+        {/* Fonte de destaque opcional */}
         <link
           href="https://fonts.googleapis.com/css2?family=Bangers&display=swap"
           rel="stylesheet"
         />
       </Helmet>
 
-      <section className="py-12 px-4 bg-[#0a0a1a] text-white">
+      <section
+        className="py-12 px-4"
+        style={{ backgroundColor: colors.azul, color: colors.preto }}
+      >
         <div className="max-w-4xl mx-auto text-center">
+          {/* Logo da loja */}
           <img
             src="/himgs/logo.webp"
-            alt="Hamburgueria Logo"
-            className="mx-auto mb-6 w-36 h-36 object-cover rounded-full border-4 border-green-400 shadow-xl"
+            alt="Bicicletas Costa"
+            className="mx-auto mb-6 w-36 h-36 object-cover rounded-full border-4"
+            style={{ borderColor: colors.azul }}
           />
 
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-green-400 drop-shadow-md">
-            The Brothers Hamburgueria
+          {/* Nome da loja */}
+          <h2
+            className="text-3xl md:text-4xl font-bold mb-4"
+            style={{ color: colors.amarelo, fontFamily: "'Bangers', cursive", textShadow: "1px 1px 2px rgba(0,0,0,0.3)" }}
+          >
+            Bicicletas Costa
           </h2>
 
-          <p className="mb-6 text-lg italic text-gray-300">
-            
-            Siga nossas redes sociais e fique por dentro de promoções, novidades e nossos lanches exclusivos.
+          {/* Descrição */}
+          <p className="mb-6 text-lg italic" style={{ color: colors.branco }}>
+            Siga nossas redes sociais e fique por dentro de promoções, novidades e nossas bicicletas exclusivas.
           </p>
 
+          {/* Ícones sociais */}
           <div className="flex justify-center gap-8 flex-wrap">
             {/* Instagram */}
             <a
-              href="https://www.instagram.com/thebrothersbetim/"
+              href="https://www.instagram.com/bikestore/"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex flex-col items-center transition-transform hover:scale-110 text-green-500 hover:text-green-300"
+              className="flex flex-col items-center transition-transform hover:scale-110"
+              style={{ color: colors.amarelo }}
             >
               <FaInstagram className="w-10 h-10 mb-2" />
-              <span className="text-sm font-medium">Instagram</span>
+              <span className="text-sm font-medium">{`Instagram`}</span>
             </a>
 
             {/* WhatsApp */}
             <a
-              href="https://wa.me/5531999918730"
+              href="https://wa.me/5531999999999"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex flex-col items-center transition-transform hover:scale-110 text-green-500 hover:text-green-300"
+              className="flex flex-col items-center transition-transform hover:scale-110"
+              style={{ color: colors.amarelo }}
             >
               <FaWhatsapp className="w-10 h-10 mb-2" />
               <span className="text-sm font-medium">WhatsApp</span>
