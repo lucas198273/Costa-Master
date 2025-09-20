@@ -39,14 +39,19 @@ export default function Hero() {
           {/* Selos de segurança */}
           <div className="flex justify-center md:justify-start gap-4 mb-8">
             <img
-              src="/himgs/selo.png"
+              src="/himgs/selo1.png"
               alt="Compra 100% segura"
-              className="w-32 h-auto object-contain"
+              className="w-28 h-auto object-contain"
             />   
             <img
               src="/himgs/selo2.png"
               alt="Compra 100% segura"
-              className="w-32 h-auto object-contain"
+              className="w-28 h-auto object-contain"
+            />    
+             <img
+              src="/himgs/selo3.png"
+              alt="Compra 100% segura"
+              className="w-28 h-auto object-contain"
             />    
          
             
