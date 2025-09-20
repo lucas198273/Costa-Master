@@ -54,7 +54,7 @@ export default function Hero() {
         <div data-aos="fade-left" className="w-full md:w-1/2 flex justify-center">
           <img
             src="/himgs/image.jpg"
-            alt="Fachada da loja Bicicletas Costa do Comércio"
+            alt="Fachada da loja Bicicletas Costa"
             className="w-full max-h-[380px] sm:max-h-[380px] md:max-h-[400px] rounded-2xl shadow-2xl object-cover"
           />
         </div>

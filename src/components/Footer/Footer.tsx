@@ -15,7 +15,7 @@ export default function Footer() {
           className="text-xl font-bold mb-4 md:mb-0"
           style={{ color: colors.preto, textShadow: "1px 1px 2px rgba(0,0,0,0.3)" }}
         >
-          Bicicletas Costa do Comércio
+          Bicicletas Costa
         </h2>
 
         {/* Ícones de redes sociais */}
