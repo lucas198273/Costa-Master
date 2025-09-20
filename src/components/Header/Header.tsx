@@ -47,7 +47,7 @@ export default function Header() {
       borderBottom="4px solid"
       borderColor={colors.preto}
       boxShadow="md"
-      transition="all 0.3s ease"
+      transition="all 0.1s ease"
     >
       <Flex
         maxW="7xl"
