@@ -47,7 +47,7 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({ images, height = "250px" 
         left="2"
         transform="translateY(-50%)"
         onClick={scrollPrev}
-        bg="whiteAlpha.700"
+        bg="blue.800"
         _hover={{ bg: "whiteAlpha.900" }}
         zIndex={10}
       />
@@ -59,7 +59,7 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({ images, height = "250px" 
         right="2"
         transform="translateY(-50%)"
         onClick={scrollNext}
-        bg="whiteAlpha.700"
+        bg="blue.800"
         _hover={{ bg: "whiteAlpha.900" }}
         zIndex={10}
       />
