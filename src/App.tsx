@@ -6,7 +6,6 @@ import { dailyCleanupIfNeeded } from './db/cleanup.ts';
 import SEO from './components/SEO/SEO.tsx';
 import Header from './components/Header/Header';
 import Hero from './components/Hero/Hero';
-import ProductInfoSection from './components/BurgerShopInfoSection/BurgerShopInfoSection.tsx';
 import Footer from './components/Footer/Footer';
 import ScrollTop from './components/ScrollTop/ScrollTop';
 import ScrollToTopOnRouteChange from './components/ScrollToTopOnRouteChange/ScrollToTopOnRouteChange';
@@ -14,6 +13,7 @@ import PoliticaEPrivacidade from './pages/PoliticasEPrivacidade';
 import MenuPage from './components/MenuSection/Menupage.tsx';
 import AboutUs from './pages/AboutUs.tsx';
 import OrdersPanel from './pages/OrdersPanel.tsx';
+import PaymentInfo from './components/PaymentInfo/PaymentInfo.tsx';
 import Aos from 'aos';
 
 export default function AppContent() {
@@ -54,7 +54,7 @@ export default function AppContent() {
               <main className="pt-20 flex flex-col w-full">
                 <Hero />
                 <MenuPage />
-                <ProductInfoSection />
+                <PaymentInfo />
               </main>
             </>
           }

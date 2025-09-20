@@ -25,16 +25,14 @@ export default function Header() {
   const navLinks = [
     { to: "/", label: "Início" },
     { to: "/about", label: "Sobre" },
-    { to: "/products", label: "Tatuagens" },
-    { to: "/afiliados", label: "Afiliados" },
     { to: "/politicas", label: "Políticas" },
-    { to: "/galeria", label: "Galeria" },
   ];
 
   const colors = {
-    amarelo: "#FFD700", // fundo
-    azul: "#043741",    // hover/destaque
-    branco: "#FFFFFF",   // texto
+  amarelo: "#FFD700", // fundo
+  azul: "#043741",    // hover/destaque/botão mobile
+  branco: "#FFFFFF",   // não   usado
+  preto: "#000000",   // texto
   };
 
   return (
@@ -45,9 +43,9 @@ export default function Header() {
       right="0"
       w="full"
       zIndex="50"
-      bg={colors.azul}
+      bg={colors.amarelo}
       borderBottom="4px solid"
-      borderColor={colors.azul}
+      borderColor={colors.preto}
       boxShadow="md"
       transition="all 0.3s ease"
     >
@@ -67,7 +65,7 @@ export default function Header() {
           display={{ base: "block", md: "none" }}
           onClick={isOpen ? onClose : onOpen}
           variant="ghost"
-          color={colors.amarelo}
+          color={colors.azul}
           mr={2}
           ref={btnRef}
         />
@@ -80,7 +78,7 @@ export default function Header() {
               as={RouterLink}
               to={link.to}
               fontWeight="bold"
-              color={colors.branco}
+              color={colors.preto}
               _hover={{ color: colors.azul, textDecoration: "underline" }}
             >
               {link.label}
@@ -95,7 +93,9 @@ export default function Header() {
           transform="translateX(-50%)"
           flexShrink={0}
           boxShadow="lg"
+          borderColor={colors.preto}
           borderRadius="full"
+          borderWidth="2px"
           transition="transform 0.3s"
           _hover={{ transform: "scale(1.05)" }}
         >
@@ -118,7 +118,7 @@ export default function Header() {
               as={RouterLink}
               to={link.to}
               fontWeight="bold"
-              color={colors.branco}
+              color={colors.preto}
               _hover={{ color: colors.azul, textDecoration: "underline" }}
             >
               {link.label}
@@ -130,9 +130,9 @@ export default function Header() {
       {/* Mobile Drawer */}
       <Drawer isOpen={isOpen} onClose={onClose} finalFocusRef={btnRef} placement="left">
         <DrawerOverlay />
-        <DrawerContent bg={colors.azul}>
-          <DrawerCloseButton color={colors.azul} />
-          <DrawerHeader color={colors.azul}>Navegação</DrawerHeader>
+        <DrawerContent bg={colors.amarelo}>
+          <DrawerCloseButton color={colors.preto} />
+          <DrawerHeader color={colors.preto}>Navegação</DrawerHeader>
           <DrawerBody>
             <Stack as="nav" spacing={4}>
               {navLinks.map((link) => (
@@ -141,9 +141,9 @@ export default function Header() {
                   as={RouterLink}
                   to={link.to}
                   fontSize="lg"
-                  color={colors.branco}
+                  color={colors.preto}
                   onClick={onClose}
-                  _hover={{ color: colors.branco }}
+                  _hover={{ color: colors.azul }}
                 >
                   {link.label}
                 </Link>

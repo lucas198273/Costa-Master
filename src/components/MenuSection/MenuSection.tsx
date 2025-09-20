@@ -1,20 +1,34 @@
-import { Box, Grid, Image, Text, Heading, Button, Stack } from "@chakra-ui/react";
+import {
+  Box,
+  Grid,
+  Image,
+  Text,
+  Heading,
+  Stack,
+  Badge,
+  Button,
+} from "@chakra-ui/react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
-import { useCart } from "../../../contexts/CartContext";
-import { type CartItem } from "../../types/CartItem";
-import { toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 import { type Product } from "../../data/Product";
 
 interface Props {
   title: string;
   items: Product[];
+  textColor: string;
+  secondaryColor: string;
+  fontFamily: string;
 }
 
-const MenuSection: React.FC<Props> = ({ title, items }) => {
-  const { addItem } = useCart();
+const MenuSection: React.FC<Props> = ({
+  title,
+  items,
+  textColor,
+  secondaryColor,
+  fontFamily,
+}) => {
+  const phoneNumber = "55SEUNUMEROAQUI"; // coloque seu número
 
   useEffect(() => {
     AOS.init({
@@ -25,29 +39,12 @@ const MenuSection: React.FC<Props> = ({ title, items }) => {
     });
   }, []);
 
-  const handleAddItem = (product: Product) => {
-    const isBurger = product.category === "hamburguer";
-    const item: CartItem = {
-      id: product.id,
-      name: product.name,
-      price: product.price!,
-      imageUrl: product.imageUrl,
-      quantity: 1,
-      isCombo: false,
-      comboQuantity: 0,
-      isBurger,
-    };
-    addItem(item, isBurger);
-
-    toast.success(`${product.name} adicionado ao carrinho!`, {
-      position: "top-right",
-      autoClose: 1500,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      theme: "colored",
-    });
+  const sendToWhatsApp = (product: Product) => {
+    const message = `Olá! Tenho interesse na bicicleta:\n\n🚲 *${product.name}*\n💰 Preço: R$ ${product.price}\n📂 Categoria: ${product.category}\n\nPoderia me dar mais informações?`;
+    const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
+      message
+    )}`;
+    window.open(url, "_blank");
   };
 
   if (items.length === 0) {
@@ -65,11 +62,12 @@ const MenuSection: React.FC<Props> = ({ title, items }) => {
         size="xl"
         textAlign="center"
         mb={6}
-        color="green.600"
-        textShadow="1px 1px 2px rgba(0,0,0,0.2)"
+        color={textColor}
+        fontFamily={fontFamily}
       >
         {title}
       </Heading>
+
       <Grid
         templateColumns={{ base: "1fr", sm: "repeat(2, 1fr)", md: "repeat(3, 1fr)" }}
         gap={6}
@@ -77,50 +75,75 @@ const MenuSection: React.FC<Props> = ({ title, items }) => {
         {items.map((product, index) => (
           <Box
             key={product.id}
-            bg="white"
-            shadow="md"
-            borderRadius="xl"
+            bg={secondaryColor}
+            border="1px solid"
+            borderColor="gray.200"
+            shadow="sm"
             overflow="hidden"
             data-aos="fade-up"
-            data-aos-delay={index * 100} // delay progressivo
-            _hover={{ shadow: "lg", transform: "translateY(-4px)" }}
+            data-aos-delay={index * 100}
+            _hover={{ shadow: "md", transform: "translateY(-4px)" }}
             transition="all 0.3s ease"
           >
+            {/* Imagem */}
             <Image
               src={product.imageUrl}
               alt={product.name}
-              h="48"
+              h="52"
               w="full"
               objectFit="cover"
             />
-            <Stack p={4} spacing={2}>
-              <Text fontWeight="bold" fontSize="lg" color="green.700">
+
+            {/* Conteúdo */}
+            <Stack p={5} spacing={3}>
+              <Text
+                fontWeight="bold"
+                fontSize="lg"
+                color={textColor}
+                fontFamily={fontFamily}
+              >
                 {product.name}
               </Text>
+
               {product.description && (
-                <Text fontSize="sm" color="gray.600">
+                <Text fontSize="sm" color="gray.700" noOfLines={3}>
                   {product.description}
                 </Text>
               )}
-              <Stack direction="row" justify="space-between" align="center" mt={2}>
-                <Text
-                  fontWeight="bold"
-                  fontSize="lg"
-                  color="green.500"
-                >
-                  {product.price?.toLocaleString("pt-BR", {
-                    style: "currency",
-                    currency: "BRL",
-                  })}
-                </Text>
+
+              <Stack direction="row" justify="space-between" align="center">
+                <Stack spacing={1}>
+                  <Text
+                    fontWeight="bold"
+                    fontSize="lg"
+                    color="green.600"
+                    fontFamily={fontFamily}
+                  >
+                    {product.price?.toLocaleString("pt-BR", {
+                      style: "currency",
+                      currency: "BRL",
+                    })}
+                  </Text>
+
+                  <Badge
+                    colorScheme={product.available ? "green" : "red"}
+                    fontSize="0.8em"
+                    w="fit-content"
+                  >
+                    {product.available ? "Disponível" : "Indisponível"}
+                  </Badge>
+                </Stack>
+
                 <Button
                   size="sm"
-                  colorScheme="green"
-                  onClick={() => handleAddItem(product)}
-                  aria-label={`Adicionar ${product.name} ao carrinho`}
+                  bg="black"
+                  color="white"
                   borderRadius="full"
+                  onClick={() => sendToWhatsApp(product)}
+                  isDisabled={!product.available}
+                  _hover={{ bg: "green.700" }}
                 >
-                  Adicionar
+                  WhatsApp
                 </Button>
               </Stack>
             </Stack>
