@@ -55,7 +55,7 @@ export default function Hero() {
           <img
             src="/himgs/image.jpg"
             alt="Fachada da loja Bicicletas Costa do Comércio"
-            className="w-full max-h-[270px] sm:max-h-[350px] md:max-h-[400px] rounded-2xl shadow-2xl object-cover"
+            className="w-full max-h-[380px] sm:max-h-[380px] md:max-h-[400px] rounded-2xl shadow-2xl object-cover"
           />
         </div>
       </div>
