@@ -26,7 +26,7 @@ export default function StatusLoja() {
       my={6}
       textAlign="center"
       border="2px solid"
-      borderColor="#FFD700" // amarelo
+      borderColor="black" // preto
     >
       <VStack spacing={2}>
         <Text
