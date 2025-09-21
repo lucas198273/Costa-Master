@@ -13,6 +13,7 @@ import AboutUs from './pages/AboutUs.tsx';
 import PaymentInfo from './components/PaymentInfo/PaymentInfo';
 import GarantiaBicicletas from './components/GarantiaBicicletas/GarantiaBicicletas.tsx';
 import InfoLoja from './components/InfoLoja/InfoLoja.tsx';
+import StatusLoja from './components/StatusLoja/StatusLoja.tsx';
 import Aos from 'aos';
 
 export default function AppContent() {
@@ -44,9 +45,11 @@ export default function AppContent() {
               <main className="pt-20 flex flex-col w-full">
                 <Hero />
                 <InfoLoja />
+                <StatusLoja />
                 <MenuPage />
                 <PaymentInfo />
                 <GarantiaBicicletas />
+                
               </main>
             </>
           }

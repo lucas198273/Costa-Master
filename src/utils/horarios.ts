@@ -11,7 +11,7 @@ export const horarioFuncionamento: HorarioDia[] = [
   { dia: "Quinta-feira", abertura: "18:00", fechamento: "03:00" },
   { dia: "Sexta-feira", abertura: "10:00", fechamento: "03:00" },
   { dia: "Sábado", abertura: "10:00", fechamento: "03:00" },
-  { dia: "Domingo", abertura: "18:00", fechamento: "03:00" },
+  { dia: "Domingo", abertura: "10:00", fechamento: "03:00" },
 ];
 
 export function verificarHorarioAtual(): { aberto: boolean; mensagem: string } {
@@ -37,7 +37,7 @@ export function verificarHorarioAtual(): { aberto: boolean; mensagem: string } {
   fechamento.setHours(horaF, minF, 0);
 
   if (agora >= abertura && agora <= fechamento) {
-    return { aberto: true, mensagem: `Aberto agora!` };
+    return { aberto: true, mensagem: `Seja Bem-vindo!` };
   }
 
   // calcular tempo até abrir
