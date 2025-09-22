@@ -105,7 +105,7 @@ const Contato = () => {
       </Box>
 
       <Box mt={8} textAlign="center" color="gray.700" fontSize="sm">
-        <Text>📍 Endereço: Rua Exemplo, 123 — Cidade, Estado</Text>
+        <Text>📍 Endereço: Rua Exemplo — Cidade, Estado</Text>
         <Text>🚲 Abertura: desde 2010 • Bicicletas Costa</Text>
       </Box>
     </Box>
