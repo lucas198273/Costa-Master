@@ -68,6 +68,7 @@ export default function Hero() {
             src="/himgs/image.jpg"
             alt="Fachada da loja Bicicletas Costa"
             className="w-full max-h-[380px] sm:max-h-[380px] md:max-h-[400px] rounded-2xl shadow-2xl object-cover"
+            loading="lazy"         
           />
         </div>
       </div>
