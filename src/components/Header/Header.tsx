@@ -32,6 +32,7 @@ export default function Header() {
     { to: "/", label: "Início" },
     { to: "/about", label: "Sobre" },
     { to: "/politicas", label: "Políticas" },
+    { to: "/contato", label: "Contato" },
   ];
 
   const colors = {

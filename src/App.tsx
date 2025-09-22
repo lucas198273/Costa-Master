@@ -8,6 +8,7 @@ import Footer from './components/Footer/Footer';
 import ScrollTop from './components/ScrollTop/ScrollTop';
 import ScrollToTopOnRouteChange from './components/ScrollToTopOnRouteChange/ScrollToTopOnRouteChange';
 import PoliticaEPrivacidade from './pages/PoliticasEPrivacidade';
+import Contato from './pages/Contato';
 import MenuPage from './components/MenuSection/Menupage.tsx';
 import AboutUs from './pages/AboutUs.tsx';
 import PaymentInfo from './components/PaymentInfo/PaymentInfo';
@@ -56,6 +57,7 @@ export default function AppContent() {
         />
         <Route path="/politicas" element={<PoliticaEPrivacidade />} />
         <Route path="/about" element={<AboutUs />} />
+        <Route path="/contato" element={<Contato />} />
       </Routes>
 
       <Footer />
