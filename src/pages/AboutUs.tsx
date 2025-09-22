@@ -1,6 +1,5 @@
 import React from "react";
 import SocialMediaSection from "../components/SocialMidia/SocialMIdia";
-import ImageCarousel from "../components/ImageCarousel/ImageCarousel.tsx";
 
 const AboutUs: React.FC = () => {
   const whatsappMessage = "Olá! Gostaria de saber mais sobre a Bicicletas Costa do Comércio e pedidos.";
@@ -13,20 +12,20 @@ const AboutUs: React.FC = () => {
     branco: "#FFFFFF",
   };
 
-  const galleryImages = [
-    "/himgs/1.jpg",
-    "/himgs/podio.jpg",
-    "/himgs/image.jpg",
-  ];
 
   return (
     <section className="min-h-screen py-16 px-4" style={{ backgroundColor: colors.branco, color: colors.preto }}>
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12 mt-10">
 
-        {/* Carrossel */}
-        <div className="md:w-1/2">
-          <ImageCarousel images={galleryImages} height="380px" />
-        </div>
+        {/* Imagem */}
+          <div className="md:w-1/2 p-6 flex justify-center items-center">
+            <img
+              src="/himgs/1.jpg"
+              alt="Bicicletas Costa"
+              className="w-full max-w-md h-auto rounded-lg shadow-lg object-cover"
+              style={{ aspectRatio: '16/9' }}
+            />
+          </div>
 
         {/* Conteúdo */}
         <div className="md:w-1/2 space-y-6">

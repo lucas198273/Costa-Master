@@ -53,12 +53,12 @@ const Contato = () => {
             </FormControl>
 
             <FormControl>
-              <FormLabel>E-mail</FormLabel>
+              <FormLabel>Telefone</FormLabel>
               <Input
-                type="email"
-                name="email"
-                placeholder="seuemail@exemplo.com"
-                required
+                type="tel"
+                name="phone"
+                placeholder="(99) 99999-9999"
+                required          
                 focusBorderColor="#FFD700"
               />
             </FormControl>
