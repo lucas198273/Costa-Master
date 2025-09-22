@@ -37,7 +37,7 @@ export default function AppContent() {
             <>
               <SEO
                 title="Bicicletas Costa | Loja de Bicicletas em Ibirité"
-                description="Bicicletas Costa: loja de bicicletas em Ibirité, MG. Vendemos bicicletas de qualidade, manutenção especializada e acessórios para todos os ciclistas."
+                description="Bicicletas Costa:  loja de bicicletas em Ibirité, MG. Vendemos bicicletas de qualidade, manutenção especializada e acessórios para todos os ciclistas."
                 image="URL_da_imagem_do_logo_ou_loja.jpg"
                 url="https://www.bicicletascosta.com.br"
               />
