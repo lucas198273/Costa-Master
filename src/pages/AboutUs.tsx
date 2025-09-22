@@ -24,6 +24,7 @@ const AboutUs: React.FC = () => {
               alt="Bicicletas Costa"
               className="w-full max-w-md h-auto rounded-lg shadow-lg object-cover"
               style={{ aspectRatio: '16/9' }}
+              loading="lazy"
             />
           </div>
 
