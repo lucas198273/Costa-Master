@@ -4,28 +4,38 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- SEO -->
+  <!-- SEO básico -->
   <meta name="robots" content="index, follow" />
-  <meta name="description" content="Bicicletas Costa do Comércio - Loja de bicicletas em Betim, Ibirité e Contagem. Oferecemos bicicletas, acessórios e serviços especializados para ciclistas de todos os níveis." />
+  <meta name="description" content="Bicicletas Costa do Comércio - Loja de bicicletas em Betim, Ibirité e Contagem. Vendemos bicicletas, acessórios e serviços especializados para ciclistas de todos os níveis." />
   <meta name="keywords" content="bicicletas, loja de bicicletas, Betim, Ibirité, Contagem, bicicletas elétricas, mountain bike, BMX, acessórios de bike, manutenção de bicicletas" />
   <meta name="author" content="Bicicletas Costa do Comércio" />
+
+  <!-- SEO local -->
+  <meta name="geo.region" content="BR-MG" />
+  <meta name="geo.placename" content="Ibirité" />
+  <meta name="geo.position" content="-19.9675;-44.1980" />
+  <meta name="ICBM" content="-19.9675, -44.1980" />
 
   <!-- Open Graph / Social Sharing -->
   <meta property="og:title" content="Bicicletas Costa do Comércio" />
   <meta property="og:description" content="Encontre sua bicicleta ideal na Bicicletas Costa do Comércio. Atendemos Betim, Ibirité e Contagem com bicicletas, acessórios e serviços especializados." />
   <meta property="og:type" content="website" />
-  <meta property="og:image" content="/himgs/logoAlt.webp" />
+  <meta property="og:image" content="/himgs/logo.webp" />
   <meta property="og:url" content="https://www.bicicletascosta.com.br" />
   <meta property="og:site_name" content="Bicicletas Costa do Comércio" />
   <meta property="og:locale" content="pt_BR" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Bicicletas Costa do Comércio" />
+  <meta name="twitter:description" content="Loja de bicicletas em Betim, Ibirité e Contagem. Vendemos bicicletas, acessórios e serviços especializados." />
+  <meta name="twitter:image" content="/himgs/logoAlt.webp" />
 
   <!-- Favicon -->
   <link rel="icon" type="image/webp" href="/himgs/logo.webp" />
 
   <!-- Título -->
   <title>Bicicletas Costa do Comércio | Loja de Bicicletas em Betim, Ibirité e Contagem</title>
-
-
 
   <!-- JSON-LD para SEO Local -->
   <script type="application/ld+json">
@@ -50,6 +60,20 @@
       "latitude": -19.9675,
       "longitude": -44.1980
     },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+        "opens": "08:00",
+        "closes": "18:00"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Saturday"],
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ],
     "sameAs": [
       "https://www.instagram.com/bicicletascosta",
       "https://wa.me/5531999999999"

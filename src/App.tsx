@@ -22,13 +22,11 @@ export default function AppContent() {
 
   useEffect(() => {
     Aos.init({ duration: 1000, once: true });
- 
-
   }, []);
 
   return (
     <div className="min-h-screen flex flex-col bg-gray-100 text-gray-800 max-w-7xl mx-auto w-full">
-      <Header  />
+      <Header />
       <ScrollToTopOnRouteChange />
       <ScrollTop />
 
@@ -38,10 +36,10 @@ export default function AppContent() {
           element={
             <>
               <SEO
-                title="The Brothers Burgers"
-                description="Hamburgueria artesanal localizada na Rua do Rosário 1091, Betim, MG. Oferecemos hambúrgueres artesanais deliciosos em um ambiente acolhedor."
-                image="URL_da_imagem_do_seu_logo_ou_foto_do_local.jpg"
-                url="https://www.thebrothersburgersbetim.com"
+                title="Bicicletas Costa | Loja de Bicicletas em Ibirité"
+                description="Bicicletas Costa: loja de bicicletas em Ibirité, MG. Vendemos bicicletas de qualidade, manutenção especializada e acessórios para todos os ciclistas."
+                image="URL_da_imagem_do_logo_ou_loja.jpg"
+                url="https://www.bicicletascosta.com.br"
               />
               <main className="pt-20 flex flex-col w-full">
                 <Hero />
@@ -50,7 +48,6 @@ export default function AppContent() {
                 <MenuPage />
                 <PaymentInfo />
                 <GarantiaBicicletas />
-                
               </main>
             </>
           }
@@ -61,8 +58,6 @@ export default function AppContent() {
       </Routes>
 
       <Footer />
-
-    
     </div>
   );
 }
